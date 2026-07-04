@@ -1,0 +1,46 @@
+{
+  "name": "grabyojana",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "homepage": "https://Bipulkuumar.github.io/GrabYojana",
+  "scripts": {
+    "dev": "vite",
+    "start": "concurrently --kill-others-on-fail --prefix-colors \"bgBlue.bold,bgGreen.bold\" --names \"BACKEND,FRONTEND\" \"npm run dev --prefix backend\" \"vite\"",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b gh-pages -d build"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.2.2",
+    "autoprefixer": "^10.4.27",
+    "axios": "^1.14.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "framer-motion": "^12.38.0",
+    "lucide-react": "^1.7.0",
+    "mongoose": "^9.4.1",
+    "postcss": "^8.5.8",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-router-dom": "^7.13.2",
+    "tailwindcss": "^4.2.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "concurrently": "^9.2.1",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "gh-pages": "^6.3.0",
+    "globals": "^17.4.0",
+    "nodemon": "^3.1.14",
+    "vite": "^8.0.1"
+  }
+}
