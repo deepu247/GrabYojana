@@ -20,7 +20,6 @@ const About = () => {
   ];
 
   const team = [
-    { name: 'Bipul Kumar', role: 'Frontend Developer', color: 'from-blue-400 to-cyan-500' },
     { name: 'Divyam Kumar', role: 'UI/UX Designer', color: 'from-pink-400 to-red-500' },
     { name: 'Deepanshu', role: 'Backend Engineer', color: 'from-emerald-400 to-teal-500' },
     { name: 'Ayush Raja', role: 'Data Analyst', color: 'from-orange-400 to-orange-500' },

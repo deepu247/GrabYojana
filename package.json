@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Bipulkuumar.github.io/GrabYojana",
   "scripts": {
     "dev": "vite",
     "start": "concurrently --kill-others-on-fail --prefix-colors \"bgBlue.bold,bgGreen.bold\" --names \"BACKEND,FRONTEND\" \"npm run dev --prefix backend\" \"vite\"",

@@ -117,12 +117,9 @@ The project is deployed to GitHub Pages using the `gh-pages` package.
 npm run deploy
 ```
 
-Live URL: [https://Bipulkuumar.github.io/GrabYojana](https://Bipulkuumar.github.io/GrabYojana)
-
 ---
 
 ## 📞 Contact
 
 For questions or issues, reach out to:
-- **Bipul Kumar** — Project Lead
 - Email: support@grabyojana.in
