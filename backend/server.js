@@ -10,9 +10,16 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/grabyojana';
 
+const defaultOrigins = ['http://localhost:5173', 'http://127.0.0.1:5173'];
+const envOrigins = (process.env.FRONTEND_URL || '')
+  .split(',')
+  .map((url) => url.trim())
+  .filter(Boolean);
+const allowedOrigins = [...defaultOrigins, ...envOrigins];
+
 app.use(
   cors({
-    origin: ['http://localhost:5173', 'http://127.0.0.1:5173'],
+    origin: allowedOrigins,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
@@ -53,7 +60,7 @@ app.use((err, req, res, next) => {
 async function startServer() {
   try {
     await mongoose.connect(MONGODB_URI);
-    const maskedURI = MONGODB_URI.replace(/:\/\/[^@]+@/, '://****:****@');
+    const maskedURI = MONGODB_URI.replace(/:\/\/[^@]+@/, '://**:**@');
     console.log(`MongoDB connected -> ${maskedURI}`);
 
     app.listen(PORT, () => {
