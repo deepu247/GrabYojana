@@ -90,7 +90,8 @@ function scoreScheme(user, rules) {
 }
 
 function matchSchemes(userProfile, allSchemes) {
-  const MAX_RAW_SCORE = 85;
+  // Max possible raw score: age(20) + gender(15) + states(15) + occupations(20) + income(15) + categories(15) = 100
+  const MAX_RAW_SCORE = 100;
   const results = [];
 
   for (const scheme of allSchemes) {

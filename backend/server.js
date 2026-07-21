@@ -1,4 +1,5 @@
 require('dotenv').config();
+const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -33,6 +34,19 @@ app.get('/health', (req, res) => {
 
 app.use('/api', matchRouter);
 app.use('/api', schemesRouter);
+
+// Single-service mode: serve the built Vite frontend (npm run build -> ../build)
+// alongside the API, so one Express process handles everything.
+const frontendBuildPath = path.join(__dirname, '..', 'build');
+app.use(express.static(frontendBuildPath));
+
+// Any non-API, non-health GET request falls back to the SPA's index.html
+// so client-side routing (React Router) keeps working on refresh/direct links.
+app.get(/^\/(?!api|health).*/, (req, res, next) => {
+  res.sendFile(path.join(frontendBuildPath, 'index.html'), (err) => {
+    if (err) next();
+  });
+});
 
 app.use((req, res) => {
   res.status(404).json({
